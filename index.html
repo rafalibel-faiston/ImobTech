@@ -888,24 +888,63 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 24px; }
-      .nav-links, .nav-right .btn-ghost-gold { display: none; }
+      nav { padding: 0 20px; height: 60px; }
+      .nav-links, .nav-right .btn-ghost-gold, .nav-right .btn-gold { display: none; }
       .hamburger { display: flex; }
-      section { padding: 72px 24px; }
-      .hero-stats { gap: 32px; }
+
+      section { padding: 64px 20px; }
+      .logos-section { padding: 24px 20px; }
+      .cta-section { padding: 72px 20px; }
+      footer { padding: 48px 20px 28px; }
+
+      /* hero */
+      .hero { padding: 100px 20px 64px; }
+      .hero-tag { font-size: 0.65rem; }
+      .hero h1 { font-size: 2.4rem; letter-spacing: -0.5px; }
+      .hero-desc { font-size: 0.92rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+      .hero-actions a { text-align: center; justify-content: center; }
+      .hero-stats { gap: 0; justify-content: space-around; }
+      .stat-number { font-size: 1.5rem; }
+
+      /* logos */
+      .logos-inner { gap: 10px; }
+      .logo-item { font-size: 0.7rem; padding: 5px 10px; }
+
+      /* features */
       .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 28px 24px; }
+
+      /* how */
       .how-grid { grid-template-columns: 1fr 1fr; }
-      .ss-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .how-step { padding: 28px 20px; }
+      .step-num { font-size: 2.5rem; margin-bottom: 12px; }
+
+      /* screenshots tabs */
+      .ss-tabs { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .ss-tab { padding: 10px 16px; font-size: 0.68rem; white-space: nowrap; }
+
+      /* section titles */
+      .section-title { font-size: 1.8rem; }
+
+      /* footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .logos-section { padding: 28px 24px; }
-      .cta-section { padding: 80px 24px; }
-      footer { padding: 48px 24px 28px; }
+      .footer-bottom-links { justify-content: center; }
     }
 
     @media (max-width: 480px) {
       .how-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-wrap: wrap; justify-content: center; gap: 28px; }
+      .hero-stats { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.6rem; }
+      .cta-section h2 { font-size: 1.8rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 24px 20px; }
+      .how-step { padding: 24px 16px; }
+      .faq-question { padding: 18px 20px; font-size: 0.85rem; }
+      .faq-answer-inner { padding: 0 20px 18px; }
+      footer { padding: 40px 20px 24px; }
     }
   </style>
 </head>
@@ -929,7 +968,7 @@
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobileMenu" style="display:none; position:fixed; top:68px; left:0; right:0; background:var(--dark2); padding:24px; z-index:99; border-bottom:1px solid var(--border);">
+  <div id="mobileMenu" style="display:none; position:fixed; top:60px; left:0; right:0; background:var(--dark2); padding:24px; z-index:99; border-bottom:1px solid var(--border);">
     <ul style="list-style:none; display:flex; flex-direction:column; gap:18px; margin-bottom:24px;">
       <li><a href="#features" onclick="closeMenu()" style="text-decoration:none; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Produto</a></li>
       <li><a href="#how" onclick="closeMenu()" style="text-decoration:none; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Como funciona</a></li>
