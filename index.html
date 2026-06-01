@@ -768,6 +768,119 @@
     }
     .footer-bottom-links a:hover { color: var(--gold); }
 
+    /* ─── SCREENSHOTS ─── */
+    .screenshots { background: var(--dark2); }
+    .screenshots-header { margin-bottom: 64px; }
+
+    .browser-mock {
+      border: 1px solid var(--border);
+      background: var(--dark);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .browser-mock:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.15);
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #111111;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .browser-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .browser-dot.r { background: #FF5F57; }
+    .browser-dot.y { background: #FFBD2E; }
+    .browser-dot.g { background: #28C840; }
+    .browser-addr {
+      margin-left: 10px;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+    .browser-screen {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top left;
+    }
+    .browser-screen-placeholder {
+      aspect-ratio: 16/9;
+      background: var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .placeholder-icon { font-size: 2rem; opacity: 0.3; }
+    .placeholder-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* featured big screenshot */
+    .ss-featured { margin-bottom: 20px; }
+
+    /* 3-col grid screenshots */
+    .ss-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* tab switcher */
+    .ss-tabs {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+    .ss-tab {
+      padding: 10px 22px;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-right: 1px solid var(--border);
+      transition: color 0.2s, background 0.2s;
+    }
+    .ss-tab:last-child { border-right: none; }
+    .ss-tab:hover { color: white; background: rgba(255,255,255,0.03); }
+    .ss-tab.active { color: var(--gold); background: rgba(201,169,110,0.06); }
+
+    .ss-panel { display: none; }
+    .ss-panel.active { display: block; }
+
+    .screen-caption {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .screen-caption-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .screen-caption-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -782,7 +895,7 @@
       .hero-stats { gap: 32px; }
       .features-grid { grid-template-columns: 1fr; }
       .how-grid { grid-template-columns: 1fr 1fr; }
-      .showcase-inner { grid-template-columns: 1fr; }
+      .ss-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .logos-section { padding: 28px 24px; }
@@ -999,96 +1112,111 @@
     </div>
   </section>
 
-  <!-- SHOWCASE -->
-  <section class="showcase">
+  <!-- SCREENSHOTS -->
+  <section class="screenshots" id="screenshots">
     <div class="section-inner">
-      <div class="showcase-inner">
-        <div>
-          <span class="section-tag">Catálogo Online</span>
-          <h2 class="section-title">Seu portfólio sempre<br><em>atualizado</em></h2>
-          <p class="section-subtitle">Clientes encontram e se interessam pelos imóveis antes mesmo da visita.</p>
-          <div class="showcase-features">
-            <div class="showcase-item">
-              <span class="showcase-item-icon">🔍</span>
-              <div>
-                <h4>Busca inteligente</h4>
-                <p>Filtros por tipo, bairro, preço, quartos, metragem e muito mais.</p>
-              </div>
-            </div>
-            <div class="showcase-item">
-              <span class="showcase-item-icon">📱</span>
-              <div>
-                <h4>100% responsivo</h4>
-                <p>Funciona perfeitamente em celular, tablet e computador.</p>
-              </div>
-            </div>
-            <div class="showcase-item">
-              <span class="showcase-item-icon">💬</span>
-              <div>
-                <h4>Contato direto via WhatsApp</h4>
-                <p>O lead envia mensagem direto para o corretor responsável pelo imóvel.</p>
-              </div>
-            </div>
+      <div class="screenshots-header">
+        <span class="section-tag">O sistema por dentro</span>
+        <h2 class="section-title">Veja o ImobTech<br><em>em ação</em></h2>
+        <p class="section-subtitle">Uma plataforma completa, pensada para o dia a dia de quem trabalha com imóveis.</p>
+      </div>
+
+      <!-- Tab switcher -->
+      <div class="ss-tabs">
+        <button class="ss-tab active" onclick="switchTab(this, 'tab-dashboard')">Dashboard</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-imoveis')">Portfólio</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-contratos')">Contratos</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-vitrine')">Vitrine</button>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="ss-panel active" id="tab-dashboard">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/dashboard</span>
+          </div>
+          <img src="assets/dashboard.png" alt="Dashboard ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">📊</span>
+            <span class="placeholder-text">dashboard.png</span>
           </div>
         </div>
-
-        <div class="dash-wrap">
-          <div class="dash-topbar">
-            <div class="dash-dot r"></div>
-            <div class="dash-dot y"></div>
-            <div class="dash-dot g"></div>
-            <span class="dash-url">imobtech.app/dashboard</span>
-          </div>
-          <div class="dash-stats">
-            <div class="dash-stat">
-              <div class="dash-stat-label">Imóveis ativos</div>
-              <div class="dash-stat-value">247</div>
-              <div class="dash-stat-change">↑ 12% este mês</div>
-            </div>
-            <div class="dash-stat">
-              <div class="dash-stat-label">Leads novos</div>
-              <div class="dash-stat-value">38</div>
-              <div class="dash-stat-change">↑ 8% esta semana</div>
-            </div>
-            <div class="dash-stat">
-              <div class="dash-stat-label">Contratos</div>
-              <div class="dash-stat-value">14</div>
-              <div class="dash-stat-change">↑ 5% este mês</div>
-            </div>
-            <div class="dash-stat">
-              <div class="dash-stat-label">Receita</div>
-              <div class="dash-stat-value">R$84K</div>
-              <div class="dash-stat-change">↑ 18% este mês</div>
-            </div>
-          </div>
-          <div class="dash-listings">
-            <div class="dash-listing">
-              <div class="listing-thumb">🏠</div>
-              <div class="listing-info">
-                <div class="listing-name">Casa em Alphaville</div>
-                <div class="listing-price">R$ 1.250.000</div>
-              </div>
-              <span class="listing-status status-active">Ativo</span>
-            </div>
-            <div class="dash-listing">
-              <div class="listing-thumb">🏢</div>
-              <div class="listing-info">
-                <div class="listing-name">Apto Vila Madalena</div>
-                <div class="listing-price">R$ 680.000</div>
-              </div>
-              <span class="listing-status status-pending">Proposta</span>
-            </div>
-            <div class="dash-listing">
-              <div class="listing-thumb">🏗️</div>
-              <div class="listing-info">
-                <div class="listing-name">Comercial Paulista</div>
-                <div class="listing-price">R$ 2.100.000</div>
-              </div>
-              <span class="listing-status status-new">Novo</span>
-            </div>
-          </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Visão geral em tempo real — portfólio, relacionamento, financeiro e funil de leads em um único painel.</span>
         </div>
       </div>
+
+      <!-- Portfólio -->
+      <div class="ss-panel" id="tab-imoveis">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/imoveis</span>
+          </div>
+          <img src="assets/imoveis.png" alt="Portfólio de Imóveis ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">🏠</span>
+            <span class="placeholder-text">imoveis.png</span>
+          </div>
+        </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Portfólio em grid com fotos reais, status de disponibilidade e ações rápidas por imóvel.</span>
+        </div>
+      </div>
+
+      <!-- Contratos -->
+      <div class="ss-panel" id="tab-contratos">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/contratos</span>
+          </div>
+          <img src="assets/contratos.png" alt="Contratos ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">📋</span>
+            <span class="placeholder-text">contratos.png</span>
+          </div>
+        </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Gestão completa de contratos de venda e locação — com status, comissão e data em um só lugar.</span>
+        </div>
+      </div>
+
+      <!-- Vitrine -->
+      <div class="ss-panel" id="tab-vitrine">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/vitrine</span>
+          </div>
+          <img src="assets/vitrine.png" alt="Vitrine ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">🌐</span>
+            <span class="placeholder-text">vitrine.png</span>
+          </div>
+        </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Vitrine pública elegante para seus clientes — gerada automaticamente com o seu catálogo de imóveis.</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1214,6 +1342,13 @@
   </footer>
 
   <script>
+    function switchTab(btn, panelId) {
+      document.querySelectorAll('.ss-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ss-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').style.background =
         window.scrollY > 20 ? 'rgba(13,13,13,0.98)' : 'rgba(13,13,13,0.9)';
