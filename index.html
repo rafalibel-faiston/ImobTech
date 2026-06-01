@@ -4,35 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ImobTech – A plataforma completa para imobiliárias modernas</title>
-  <meta name="description" content="Gerencie imóveis, leads e contratos em um só lugar. A solução SaaS que transforma sua imobiliária em uma máquina de vendas." />
+  <meta name="description" content="Gerencie imóveis, leads e contratos em um só lugar. A solução SaaS que transforma sua imobiliária." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary: #6C3FEE;
-      --primary-dark: #5730D0;
-      --primary-light: #EDE9FF;
-      --accent: #FF6B35;
-      --accent-light: #FFF0EB;
-      --dark: #0F0A23;
-      --dark2: #1A1535;
-      --gray: #6B7280;
-      --gray-light: #F3F4F6;
-      --white: #FFFFFF;
-      --success: #10B981;
-      --radius: 16px;
-      --shadow: 0 4px 24px rgba(108,63,238,0.12);
-      --shadow-lg: 0 16px 48px rgba(108,63,238,0.2);
+      --gold: #C9A96E;
+      --gold-light: #E8D5B0;
+      --gold-dark: #A07840;
+      --dark: #0D0D0D;
+      --dark2: #141414;
+      --dark3: #1C1C1C;
+      --border: rgba(201,169,110,0.2);
+      --text-muted: rgba(255,255,255,0.45);
+      --text-body: rgba(255,255,255,0.72);
+      --radius: 4px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      color: #1F2937;
-      background: var(--white);
+      background: var(--dark);
+      color: var(--text-body);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -42,116 +38,84 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 0 24px;
-      height: 72px;
+      height: 68px;
+      padding: 0 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(108,63,238,0.08);
-      transition: box-shadow 0.3s;
+      background: rgba(13,13,13,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
     }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 
     .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-    }
-    .nav-logo-icon {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--primary), #9B6DFF);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: white;
-      font-size: 1.1rem;
-      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--gray);
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover { color: var(--gold-light); }
 
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .btn-ghost {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .btn-ghost:hover { background: var(--primary-light); }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 10px 22px;
-      border-radius: 10px;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    .btn-gold {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 11px 24px;
       border: none;
       cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
     }
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(108,63,238,0.3);
-    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-    .btn-large {
-      font-size: 1.05rem;
-      padding: 14px 28px;
-      border-radius: 12px;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid rgba(255,255,255,0.3);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      padding: 13px 26px;
-      border-radius: 12px;
-      transition: background 0.2s, border-color 0.2s;
+    .btn-ghost-gold {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      background: transparent;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.6);
-    }
+    .btn-ghost-gold:hover { border-color: var(--gold); color: var(--gold-light); }
 
     .hamburger {
       display: none;
@@ -163,458 +127,312 @@
       border: none;
     }
     .hamburger span {
-      width: 24px; height: 2px;
-      background: var(--primary);
-      border-radius: 2px;
+      width: 22px; height: 1.5px;
+      background: var(--gold);
       transition: 0.3s;
     }
 
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #2D1B69 100%);
+      position: relative;
       display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 120px 24px 80px;
-      position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
-      top: -20%; right: -10%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(108,63,238,0.25) 0%, transparent 70%);
-      pointer-events: none;
+      inset: 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #111118 50%, #0d0d10 100%);
     }
-    .hero::after {
+    .hero-bg::after {
       content: '';
       position: absolute;
-      bottom: -10%; left: -5%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
-      pointer-events: none;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 20%, rgba(201,169,110,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(201,169,110,0.04) 0%, transparent 60%);
+    }
+    /* subtle grid */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
 
     .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
       position: relative;
       z-index: 1;
+      max-width: 780px;
     }
 
-    .hero-badge {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(108,63,238,0.2);
-      border: 1px solid rgba(108,63,238,0.4);
-      color: #C4B0FF;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 50px;
-      margin-bottom: 24px;
+      gap: 12px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
     }
-    .hero-badge .dot {
-      width: 7px; height: 7px;
-      background: #9B6DFF;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+    .hero-tag::before, .hero-tag::after {
+      content: '';
+      width: 36px; height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-      font-weight: 900;
-      line-height: 1.1;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      font-weight: 400;
       color: white;
-      letter-spacing: -1.5px;
-      margin-bottom: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
     }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, #9B6DFF, #FF6B35);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-divider {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      margin: 28px auto;
+      opacity: 0.6;
     }
 
     .hero-desc {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 40px;
+      font-size: 1rem;
+      color: var(--text-muted);
       max-width: 480px;
-      line-height: 1.7;
+      margin: 0 auto 48px;
+      line-height: 1.75;
+      font-weight: 300;
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
+      justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 48px;
+      margin-bottom: 72px;
     }
 
     .hero-stats {
       display: flex;
-      gap: 32px;
+      justify-content: center;
+      gap: 56px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
     }
-    .stat {
-      display: flex;
-      flex-direction: column;
-    }
+    .stat { text-align: center; }
     .stat-number {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -0.5px;
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
-    }
-
-    .hero-visual {
-      position: relative;
-    }
-    .dashboard-mockup {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
-    }
-    .mockup-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .mockup-dot.red { background: #FF5F57; }
-    .mockup-dot.yellow { background: #FFBD2E; }
-    .mockup-dot.green { background: #28C840; }
-    .mockup-title {
-      margin-left: 8px;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.82rem;
-      font-weight: 500;
-    }
-
-    .mockup-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .mockup-stat-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 14px;
-    }
-    .mockup-stat-label {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.45);
-      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
       margin-bottom: 6px;
     }
-    .mockup-stat-value {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: white;
-    }
-    .mockup-stat-change {
-      font-size: 0.7rem;
-      color: var(--success);
-      font-weight: 600;
-    }
-
-    .mockup-listings {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .mockup-listing {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .listing-img {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--primary), #9B6DFF);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-    .listing-info { flex: 1; min-width: 0; }
-    .listing-name {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: white;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .listing-price {
+    .stat-label {
       font-size: 0.72rem;
-      color: rgba(255,255,255,0.5);
-    }
-    .listing-badge {
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 50px;
-    }
-    .badge-green { background: rgba(16,185,129,0.2); color: #10B981; }
-    .badge-yellow { background: rgba(251,191,36,0.2); color: #F59E0B; }
-    .badge-blue { background: rgba(108,63,238,0.2); color: #9B6DFF; }
-
-    /* floating cards */
-    .float-card {
-      position: absolute;
-      background: white;
-      border-radius: 14px;
-      padding: 12px 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-    .float-card.card-1 { bottom: -20px; left: -30px; animation-delay: 0s; }
-    .float-card.card-2 { top: 20px; right: -30px; animation-delay: 1.5s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .float-icon {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-    .float-text { display: flex; flex-direction: column; }
-    .float-label { font-size: 0.7rem; color: var(--gray); font-weight: 500; }
-    .float-value { font-size: 0.9rem; font-weight: 800; color: #1F2937; }
-
-    /* ─── LOGOS / SOCIAL PROOF ─── */
-    .logos-section {
-      padding: 40px 24px;
-      background: var(--gray-light);
-      border-bottom: 1px solid #E5E7EB;
-    }
-    .logos-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .logos-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-    }
-    .logos-grid {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .logo-item {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #9CA3AF;
-      letter-spacing: -0.3px;
-      white-space: nowrap;
+      color: var(--text-muted);
     }
 
-    /* ─── SECTIONS COMMON ─── */
-    section { padding: 96px 24px; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
+    /* ─── SECTION COMMON ─── */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
 
     .section-tag {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.82rem;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      border-radius: 50px;
-      margin-bottom: 16px;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
+    .section-tag::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
     .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 900;
-      color: #111827;
-      letter-spacing: -1px;
-      line-height: 1.15;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
       margin-bottom: 16px;
     }
+    .section-title em { font-style: italic; color: var(--gold); }
+
     .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--gray);
-      max-width: 520px;
-      line-height: 1.7;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.75;
+      font-weight: 300;
     }
+
     .text-center { text-align: center; }
     .text-center .section-subtitle { margin: 0 auto; }
 
+    /* ─── LOGOS ─── */
+    .logos-section {
+      padding: 36px 48px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--dark2);
+    }
+    .logos-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .logos-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 12px;
+      white-space: nowrap;
+    }
+    .logo-item {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
     /* ─── FEATURES ─── */
-    .features { background: white; }
-    .features-header { margin-bottom: 64px; }
+    .features { background: var(--dark); }
+    .features-header { margin-bottom: 72px; }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
     .feature-card {
-      background: white;
-      border: 1.5px solid #E5E7EB;
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      cursor: default;
+      background: var(--dark);
+      padding: 44px 36px;
+      transition: background 0.3s;
     }
-    .feature-card:hover {
-      border-color: var(--primary);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
+    .feature-card:hover { background: var(--dark3); }
+
     .feature-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.85;
     }
     .feature-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
     }
     .feature-card p {
-      font-size: 0.95rem;
-      color: var(--gray);
-      line-height: 1.65;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 20px;
     }
-    .feature-card ul {
+    .feature-list {
       list-style: none;
-      margin-top: 16px;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    .feature-card ul li {
+    .feature-list li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.88rem;
-      color: #4B5563;
+      gap: 10px;
+      font-weight: 300;
     }
-    .feature-card ul li::before {
-      content: '✓';
-      width: 18px; height: 18px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 800;
+    .feature-list li::before {
+      content: '';
+      width: 14px; height: 1px;
+      background: var(--gold);
       flex-shrink: 0;
     }
 
     /* ─── HOW IT WORKS ─── */
-    .how {
-      background: linear-gradient(180deg, #FAFAFA 0%, white 100%);
-    }
-    .steps {
+    .how { background: var(--dark2); }
+    .how-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 56px;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 64px;
+    }
+    .how-step {
+      background: var(--dark2);
+      padding: 44px 32px;
       position: relative;
+      transition: background 0.3s;
     }
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(12.5% + 10px);
-      right: calc(12.5% + 10px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), #9B6DFF);
-      z-index: 0;
-    }
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .step-number {
-      width: 56px; height: 56px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      font-weight: 800;
+    .how-step:hover { background: var(--dark3); }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: rgba(201,169,110,0.12);
+      line-height: 1;
       margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(108,63,238,0.35);
-      border: 3px solid white;
+      display: block;
     }
-    .step h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #111827;
+    .how-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: white;
       margin-bottom: 10px;
     }
-    .step p {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.6;
+    .how-step p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
     }
 
     /* ─── SHOWCASE ─── */
-    .showcase {
-      background: white;
-      overflow: hidden;
-    }
+    .showcase { background: var(--dark); overflow: hidden; }
     .showcase-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -624,393 +442,200 @@
     .showcase-features {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      margin-top: 32px;
+      gap: 0;
+      margin-top: 36px;
+      border: 1px solid var(--border);
     }
     .showcase-item {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       align-items: flex-start;
+      padding: 28px 28px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
     }
+    .showcase-item:last-child { border-bottom: none; }
+    .showcase-item:hover { background: var(--dark3); }
     .showcase-item-icon {
-      width: 44px; height: 44px;
-      background: var(--primary-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      padding-top: 2px;
       flex-shrink: 0;
     }
     .showcase-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #111827;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
       margin-bottom: 4px;
+      letter-spacing: 0.02em;
     }
     .showcase-item p {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.6;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 300;
     }
 
-    .showcase-screen {
-      background: var(--gray-light);
-      border-radius: 20px;
-      padding: 24px;
-      border: 1px solid #E5E7EB;
+    /* dashboard mockup */
+    .dash-wrap {
+      border: 1px solid var(--border);
+      background: var(--dark2);
     }
-    .screen-bar {
+    .dash-topbar {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .screen-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #111827;
-    }
-    .screen-badge {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 50px;
-    }
-    .property-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .prop-card {
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border: 1px solid #E5E7EB;
-    }
-    .prop-img {
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
-    .prop-info { padding: 12px; }
-    .prop-type {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-    .prop-name {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 6px;
-    }
-    .prop-price {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .prop-meta {
-      display: flex;
       gap: 8px;
-      margin-top: 6px;
     }
-    .prop-meta span {
-      font-size: 0.68rem;
-      color: var(--gray);
-    }
-
-    /* ─── PRICING ─── */
-    .pricing {
-      background: var(--gray-light);
-    }
-    .pricing-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 24px 0 48px;
-    }
-    .toggle-label { font-size: 0.95rem; font-weight: 600; color: var(--gray); }
-    .toggle-label.active { color: #111827; }
-    .badge-save {
-      background: var(--accent-light);
-      color: var(--accent);
+    .dash-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dash-dot.r { background: #FF5F57; }
+    .dash-dot.y { background: #FFBD2E; }
+    .dash-dot.g { background: #28C840; }
+    .dash-url {
+      margin-left: 10px;
       font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 50px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
     }
-    .toggle-switch {
-      width: 52px; height: 28px;
-      background: var(--primary);
-      border-radius: 50px;
-      position: relative;
-      cursor: pointer;
-      border: none;
-    }
-    .toggle-switch::after {
-      content: '';
-      position: absolute;
-      top: 3px; right: 3px;
-      width: 22px; height: 22px;
-      background: white;
-      border-radius: 50%;
-      transition: transform 0.3s;
-    }
-    .toggle-switch.monthly::after { transform: translateX(-24px); }
 
-    .pricing-grid {
+    .dash-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      align-items: start;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .plan-card {
-      background: white;
-      border: 1.5px solid #E5E7EB;
-      border-radius: 20px;
-      padding: 36px 32px;
-      position: relative;
-      transition: box-shadow 0.2s, transform 0.2s;
+    .dash-stat {
+      background: var(--dark2);
+      padding: 20px;
     }
-    .plan-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .plan-card.popular {
-      border-color: var(--primary);
-      box-shadow: var(--shadow-lg);
-    }
-    .popular-badge {
-      position: absolute;
-      top: -14px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 5px 16px;
-      border-radius: 50px;
-      white-space: nowrap;
-    }
-    .plan-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gray);
+    .dash-stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .plan-price {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
-    .plan-currency { font-size: 1.1rem; font-weight: 700; color: #111827; }
-    .plan-amount {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #111827;
-      letter-spacing: -2px;
+    .dash-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: white;
       line-height: 1;
     }
-    .plan-period { font-size: 0.9rem; color: var(--gray); }
-    .plan-desc {
-      font-size: 0.9rem;
-      color: var(--gray);
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #E5E7EB;
+    .dash-stat-change {
+      font-size: 0.68rem;
+      color: var(--gold);
+      margin-top: 4px;
     }
-    .plan-features {
-      list-style: none;
+
+    .dash-listings {
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 8px;
     }
-    .plan-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: #374151;
-    }
-    .plan-features li .check {
-      width: 20px; height: 20px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 800;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .plan-features li.disabled { color: #9CA3AF; }
-    .plan-features li.disabled .check {
-      background: #F3F4F6;
-      color: #9CA3AF;
-    }
-    .plan-cta {
-      width: 100%;
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .plan-cta.primary {
-      background: var(--primary);
-      color: white;
-    }
-    .plan-cta.primary:hover {
-      background: var(--primary-dark);
-      box-shadow: 0 8px 20px rgba(108,63,238,0.3);
-    }
-    .plan-cta.outline {
-      background: transparent;
-      border: 2px solid #E5E7EB;
-      color: #374151;
-    }
-    .plan-cta.outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testimonials { background: white; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .testimonial-card {
-      background: white;
-      border: 1.5px solid #E5E7EB;
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .testimonial-card:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-3px);
-    }
-    .stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 16px;
-      color: #F59E0B;
-      font-size: 0.95rem;
-    }
-    .testimonial-text {
-      font-size: 0.95rem;
-      color: #374151;
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .testimonial-author {
+    .dash-listing {
       display: flex;
       align-items: center;
       gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+      transition: background 0.2s;
     }
-    .author-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
+    .dash-listing:hover { background: rgba(201,169,110,0.04); border-color: var(--border); }
+    .listing-thumb {
+      width: 36px; height: 36px;
+      background: var(--border);
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
+      font-size: 1rem;
       flex-shrink: 0;
     }
-    .author-name {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #111827;
+    .listing-info { flex: 1; min-width: 0; }
+    .listing-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .author-role {
-      font-size: 0.8rem;
-      color: var(--gray);
+    .listing-price {
+      font-size: 0.7rem;
+      color: var(--text-muted);
     }
+    .listing-status {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid;
+    }
+    .status-active { color: #6EE7B7; border-color: rgba(110,231,183,0.3); }
+    .status-pending { color: var(--gold); border-color: var(--border); }
+    .status-new { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); }
 
     /* ─── FAQ ─── */
-    .faq { background: var(--gray-light); }
+    .faq { background: var(--dark2); }
     .faq-list {
-      max-width: 720px;
-      margin: 48px auto 0;
+      max-width: 680px;
+      margin: 56px auto 0;
+      border: 1px solid var(--border);
     }
     .faq-item {
-      background: white;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      border: 1px solid #E5E7EB;
-      overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
+    .faq-item:last-child { border-bottom: none; }
     .faq-question {
       width: 100%;
       text-align: left;
-      padding: 20px 24px;
+      padding: 24px 28px;
       background: none;
       border: none;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #111827;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
       transition: color 0.2s;
       gap: 16px;
     }
-    .faq-question:hover { color: var(--primary); }
+    .faq-question:hover { color: white; }
     .faq-icon {
-      width: 28px; height: 28px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex-shrink: 0;
+      font-size: 1.2rem;
+      color: var(--gold);
       transition: transform 0.3s;
+      flex-shrink: 0;
+      line-height: 1;
     }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.35s ease;
     }
     .faq-item.open .faq-answer { max-height: 300px; }
     .faq-answer-inner {
-      padding: 0 24px 20px;
-      font-size: 0.95rem;
-      color: var(--gray);
-      line-height: 1.7;
+      padding: 0 28px 24px;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
     }
 
-    /* ─── CTA FINAL ─── */
+    /* ─── CTA ─── */
     .cta-section {
-      background: linear-gradient(135deg, var(--primary) 0%, #9B6DFF 50%, #FF6B35 100%);
-      padding: 100px 24px;
+      background: var(--dark);
+      padding: 120px 48px;
       text-align: center;
+      border-top: 1px solid var(--border);
       position: relative;
       overflow: hidden;
     }
@@ -1018,20 +643,24 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
     .cta-section h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 400;
       color: white;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
+      line-height: 1.15;
+      margin-bottom: 12px;
     }
+    .cta-section h2 em { font-style: italic; color: var(--gold); }
     .cta-section p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 40px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      font-weight: 300;
     }
     .cta-actions {
       display: flex;
@@ -1039,68 +668,64 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-    .btn-white {
-      background: white;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.05rem;
-      padding: 14px 28px;
-      border-radius: 12px;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-white:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      transform: translateY(-2px);
-    }
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.6);
-      padding: 64px 24px 32px;
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 56px 48px 32px;
     }
     .footer-grid {
-      max-width: 1200px;
+      max-width: 1160px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 48px;
-      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
     }
-    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 14px;
+      display: block;
+    }
     .footer-brand p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
       line-height: 1.7;
-      color: rgba(255,255,255,0.45);
+      font-weight: 300;
       margin-bottom: 20px;
+      max-width: 260px;
     }
     .footer-social {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
     .social-btn {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 8px;
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
+      font-size: 0.72rem;
+      color: var(--text-muted);
       text-decoration: none;
-      transition: background 0.2s;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 600;
     }
-    .social-btn:hover { background: var(--primary); color: white; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+
     .footer-col h4 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: white;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
       margin-bottom: 16px;
     }
     .footer-col ul {
@@ -1111,65 +736,176 @@
     }
     .footer-col ul a {
       text-decoration: none;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
       transition: color 0.2s;
     }
-    .footer-col ul a:hover { color: white; }
+    .footer-col ul a:hover { color: var(--gold-light); }
+
     .footer-bottom {
-      max-width: 1200px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.07);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
     }
-    .footer-bottom p { font-size: 0.85rem; }
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
     .footer-bottom-links {
       display: flex;
       gap: 20px;
     }
     .footer-bottom-links a {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
       text-decoration: none;
+      transition: color 0.2s;
     }
-    .footer-bottom-links a:hover { color: white; }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* ─── SCREENSHOTS ─── */
+    .screenshots { background: var(--dark2); }
+    .screenshots-header { margin-bottom: 64px; }
+
+    .browser-mock {
+      border: 1px solid var(--border);
+      background: var(--dark);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .browser-mock:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.15);
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #111111;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .browser-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .browser-dot.r { background: #FF5F57; }
+    .browser-dot.y { background: #FFBD2E; }
+    .browser-dot.g { background: #28C840; }
+    .browser-addr {
+      margin-left: 10px;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+    .browser-screen {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top left;
+    }
+    .browser-screen-placeholder {
+      aspect-ratio: 16/9;
+      background: var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .placeholder-icon { font-size: 2rem; opacity: 0.3; }
+    .placeholder-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* featured big screenshot */
+    .ss-featured { margin-bottom: 20px; }
+
+    /* 3-col grid screenshots */
+    .ss-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* tab switcher */
+    .ss-tabs {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+    .ss-tab {
+      padding: 10px 22px;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-right: 1px solid var(--border);
+      transition: color 0.2s, background 0.2s;
+    }
+    .ss-tab:last-child { border-right: none; }
+    .ss-tab:hover { color: white; background: rgba(255,255,255,0.03); }
+    .ss-tab.active { color: var(--gold); background: rgba(201,169,110,0.06); }
+
+    .ss-panel { display: none; }
+    .ss-panel.active { display: block; }
+
+    .screen-caption {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .screen-caption-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .screen-caption-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
 
     @media (max-width: 768px) {
-      .nav-links, .nav-cta .btn-ghost { display: none; }
+      nav { padding: 0 24px; }
+      .nav-links, .nav-right .btn-ghost-gold { display: none; }
       .hamburger { display: flex; }
-
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { display: none; }
-      .hero { text-align: center; }
-      .hero-desc { margin: 0 auto 40px; }
-      .hero-actions { justify-content: center; }
-      .hero-stats { justify-content: center; }
-
+      section { padding: 72px 24px; }
+      .hero-stats { gap: 32px; }
       .features-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
-      .steps::before { display: none; }
-      .showcase-inner { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .ss-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .logos-section { padding: 28px 24px; }
+      .cta-section { padding: 80px 24px; }
+      footer { padding: 48px 24px 28px; }
     }
 
     @media (max-width: 480px) {
-      .steps { grid-template-columns: 1fr; }
-      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; justify-content: center; gap: 28px; }
     }
   </style>
 </head>
@@ -1177,20 +913,15 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">IT</div>
-      ImobTech
-    </a>
-    <ul class="nav-links">
-      <li><a href="#features">Funcionalidades</a></li>
-      <li><a href="#how">Como funciona</a></li>
-      <li><a href="#pricing">Planos</a></li>
-      <li><a href="#testimonials">Depoimentos</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-ghost">Entrar</a>
-      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-primary">Teste grátis →</a>
+    <a href="#" class="nav-logo">ImobTech</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#features">Produto</a></li>
+        <li><a href="#how">Como funciona</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-ghost-gold">Entrar</a>
+      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-gold">Começar grátis</a>
     </div>
     <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -1198,129 +929,52 @@
   </nav>
 
   <!-- MOBILE MENU -->
-  <div id="mobileMenu" style="display:none; position:fixed; top:72px; left:0; right:0; background:white; padding:20px 24px 28px; z-index:99; border-bottom:1px solid #E5E7EB; box-shadow:0 8px 24px rgba(0,0,0,0.1);">
-    <ul style="list-style:none; display:flex; flex-direction:column; gap:16px; margin-bottom:20px;">
-      <li><a href="#features" onclick="closeMenu()" style="text-decoration:none; font-size:1rem; font-weight:600; color:#374151;">Funcionalidades</a></li>
-      <li><a href="#how" onclick="closeMenu()" style="text-decoration:none; font-size:1rem; font-weight:600; color:#374151;">Como funciona</a></li>
-      <li><a href="#pricing" onclick="closeMenu()" style="text-decoration:none; font-size:1rem; font-weight:600; color:#374151;">Planos</a></li>
-      <li><a href="#testimonials" onclick="closeMenu()" style="text-decoration:none; font-size:1rem; font-weight:600; color:#374151;">Depoimentos</a></li>
-      <li><a href="#faq" onclick="closeMenu()" style="text-decoration:none; font-size:1rem; font-weight:600; color:#374151;">FAQ</a></li>
+  <div id="mobileMenu" style="display:none; position:fixed; top:68px; left:0; right:0; background:var(--dark2); padding:24px; z-index:99; border-bottom:1px solid var(--border);">
+    <ul style="list-style:none; display:flex; flex-direction:column; gap:18px; margin-bottom:24px;">
+      <li><a href="#features" onclick="closeMenu()" style="text-decoration:none; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Produto</a></li>
+      <li><a href="#how" onclick="closeMenu()" style="text-decoration:none; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Como funciona</a></li>
+      <li><a href="#faq" onclick="closeMenu()" style="text-decoration:none; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6);">FAQ</a></li>
     </ul>
     <div style="display:flex; flex-direction:column; gap:10px;">
-      <a href="https://imobiliaria-wkel.onrender.com/login.html" style="text-align:center; padding:12px; border:2px solid #E5E7EB; border-radius:10px; font-weight:600; color:#6C3FEE; text-decoration:none;">Entrar</a>
-      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-primary" style="justify-content:center; padding:12px;">Teste grátis →</a>
+      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-ghost-gold" style="justify-content:center;">Entrar</a>
+      <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-gold" style="justify-content:center;">Começar grátis</a>
     </div>
   </div>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Plataforma #1 para imobiliárias
-        </div>
-        <h1>
-          Venda mais imóveis com menos <span class="highlight">esforço</span>
-        </h1>
-        <p class="hero-desc">
-          A plataforma completa que une gestão de imóveis, CRM inteligente e catálogo online. Tudo que sua imobiliária precisa em um só lugar.
-        </p>
-        <div class="hero-actions">
-          <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-primary btn-large">
-            Começar gratuitamente →
-          </a>
-          <a href="#how" class="btn-outline">
-            ▷ Ver como funciona
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">+500</span>
-            <span class="stat-label">imobiliárias</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">+12K</span>
-            <span class="stat-label">imóveis ativos</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">satisfação</span>
-          </div>
-        </div>
+      <div class="hero-tag">Plataforma para Imobiliárias</div>
+      <h1>A gestão que sua<br>imobiliária <em>merece</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">
+        Gerencie imóveis, leads e contratos em um só lugar. Do cadastro ao fechamento — tudo integrado, tudo elegante.
+      </p>
+      <div class="hero-actions">
+        <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-gold" style="font-size:0.82rem; padding:13px 28px;">
+          Começar gratuitamente
+        </a>
+        <a href="https://imobiliaria-wkel.onrender.com/catalogo" class="btn-ghost-gold" style="font-size:0.82rem; padding:13px 28px;">
+          Ver catálogo demo
+        </a>
       </div>
-
-      <div class="hero-visual">
-        <div class="dashboard-mockup">
-          <div class="mockup-header">
-            <div class="mockup-dot red"></div>
-            <div class="mockup-dot yellow"></div>
-            <div class="mockup-dot green"></div>
-            <span class="mockup-title">ImobTech Dashboard</span>
-          </div>
-          <div class="mockup-stats-grid">
-            <div class="mockup-stat-card">
-              <div class="mockup-stat-label">Imóveis ativos</div>
-              <div class="mockup-stat-value">247</div>
-              <div class="mockup-stat-change">↑ 12% este mês</div>
-            </div>
-            <div class="mockup-stat-card">
-              <div class="mockup-stat-label">Leads novos</div>
-              <div class="mockup-stat-value">38</div>
-              <div class="mockup-stat-change">↑ 8% esta semana</div>
-            </div>
-            <div class="mockup-stat-card">
-              <div class="mockup-stat-label">Contratos</div>
-              <div class="mockup-stat-value">14</div>
-              <div class="mockup-stat-change">↑ 5% este mês</div>
-            </div>
-            <div class="mockup-stat-card">
-              <div class="mockup-stat-label">Receita</div>
-              <div class="mockup-stat-value">R$84K</div>
-              <div class="mockup-stat-change">↑ 18% este mês</div>
-            </div>
-          </div>
-          <div class="mockup-listings">
-            <div class="mockup-listing">
-              <div class="listing-img">🏠</div>
-              <div class="listing-info">
-                <div class="listing-name">Casa em Alphaville</div>
-                <div class="listing-price">R$ 1.250.000</div>
-              </div>
-              <span class="listing-badge badge-green">Ativo</span>
-            </div>
-            <div class="mockup-listing">
-              <div class="listing-img">🏢</div>
-              <div class="listing-info">
-                <div class="listing-name">Apto Vila Madalena</div>
-                <div class="listing-price">R$ 680.000</div>
-              </div>
-              <span class="listing-badge badge-yellow">Proposta</span>
-            </div>
-            <div class="mockup-listing">
-              <div class="listing-img">🏗️</div>
-              <div class="listing-info">
-                <div class="listing-name">Comercial Paulista</div>
-                <div class="listing-price">R$ 2.100.000</div>
-              </div>
-              <span class="listing-badge badge-blue">Novo</span>
-            </div>
-          </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Imobiliárias</span>
         </div>
-
-        <div class="float-card card-1">
-          <div class="float-icon" style="background:#ECFDF5;">🎉</div>
-          <div class="float-text">
-            <span class="float-label">Novo contrato assinado!</span>
-            <span class="float-value">R$ 420.000</span>
-          </div>
+        <div class="stat">
+          <span class="stat-number">12K+</span>
+          <span class="stat-label">Imóveis ativos</span>
         </div>
-        <div class="float-card card-2">
-          <div class="float-icon" style="background:#EDE9FF;">🔔</div>
-          <div class="float-text">
-            <span class="float-label">Lead qualificado</span>
-            <span class="float-value">João Silva</span>
-          </div>
+        <div class="stat">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfação</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">14</span>
+          <span class="stat-label">Dias grátis</span>
         </div>
       </div>
     </div>
@@ -1329,33 +983,31 @@
   <!-- LOGOS -->
   <div class="logos-section">
     <div class="logos-inner">
-      <p class="logos-label">Integra com as ferramentas que você já usa</p>
-      <div class="logos-grid">
-        <span class="logo-item">WhatsApp Business</span>
-        <span class="logo-item">Google Analytics</span>
-        <span class="logo-item">ZAP Imóveis</span>
-        <span class="logo-item">Viva Real</span>
-        <span class="logo-item">OLX</span>
-        <span class="logo-item">Instagram Ads</span>
-      </div>
+      <span class="logos-label">Integra com</span>
+      <span class="logo-item">WhatsApp</span>
+      <span class="logo-item">ZAP Imóveis</span>
+      <span class="logo-item">Viva Real</span>
+      <span class="logo-item">OLX</span>
+      <span class="logo-item">Google Analytics</span>
+      <span class="logo-item">Instagram</span>
     </div>
   </div>
 
   <!-- FEATURES -->
   <section class="features" id="features">
     <div class="section-inner">
-      <div class="features-header text-center">
-        <span class="section-tag">Funcionalidades</span>
-        <h2 class="section-title">Tudo que sua imobiliária precisa</h2>
-        <p class="section-subtitle">De pequenas imobiliárias a grandes redes — o ImobTech escala com você.</p>
+      <div class="features-header">
+        <span class="section-tag">Produto</span>
+        <h2 class="section-title">Tudo que você precisa,<br><em>reunido em um lugar</em></h2>
+        <p class="section-subtitle">Do corretor autônomo à grande rede — o ImobTech escala com o seu negócio.</p>
       </div>
       <div class="features-grid">
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#EDE9FF;">🏠</div>
+          <span class="feature-icon">🏠</span>
           <h3>Gestão de Imóveis</h3>
-          <p>Cadastre, organize e publique imóveis em segundos. Fotos, plantas baixas, vídeos e tour virtual em um só lugar.</p>
-          <ul>
+          <p>Cadastre, organize e publique imóveis em segundos. Fotos, plantas e vídeos centralizados.</p>
+          <ul class="feature-list">
             <li>Catálogo online com domínio próprio</li>
             <li>Publicação automática em portais</li>
             <li>Galeria de fotos e vídeos</li>
@@ -1364,58 +1016,58 @@
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#FFF0EB;">👥</div>
+          <span class="feature-icon">👥</span>
           <h3>CRM Inteligente</h3>
-          <p>Nunca perca um lead. Acompanhe cada oportunidade do primeiro contato até o fechamento do contrato.</p>
-          <ul>
+          <p>Acompanhe cada lead do primeiro contato ao fechamento. Nunca perca uma oportunidade.</p>
+          <ul class="feature-list">
             <li>Funil de vendas visual</li>
-            <li>Histórico completo de contatos</li>
+            <li>Histórico completo por cliente</li>
             <li>Alertas automáticos de follow-up</li>
             <li>Integração com WhatsApp</li>
           </ul>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#ECFDF5;">📋</div>
+          <span class="feature-icon">📋</span>
           <h3>Contratos Digitais</h3>
-          <p>Crie, envie e assine contratos de compra, venda e locação 100% online. Sem papel, sem burocracia.</p>
-          <ul>
+          <p>Crie, envie e assine contratos de compra, venda e locação 100% online. Sem papel.</p>
+          <ul class="feature-list">
             <li>Templates personalizáveis</li>
-            <li>Assinatura digital com validade</li>
+            <li>Assinatura digital com validade jurídica</li>
             <li>Notificações por e-mail e SMS</li>
             <li>Arquivo na nuvem</li>
           </ul>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#FEF3C7;">📊</div>
-          <h3>Relatórios e Analytics</h3>
-          <p>Tome decisões baseadas em dados. Veja o desempenho de cada corretor, imóvel e campanha de marketing.</p>
-          <ul>
+          <span class="feature-icon">📊</span>
+          <h3>Analytics & Relatórios</h3>
+          <p>Tome decisões com dados. Performance de corretores, imóveis e campanhas em tempo real.</p>
+          <ul class="feature-list">
             <li>Dashboard em tempo real</li>
-            <li>Relatórios de performance</li>
-            <li>Funil de conversão detalhado</li>
-            <li>Exportação para Excel/PDF</li>
+            <li>Relatórios de conversão</li>
+            <li>Performance por corretor</li>
+            <li>Exportação para Excel e PDF</li>
           </ul>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#EDE9FF;">🌐</div>
+          <span class="feature-icon">🌐</span>
           <h3>Site Profissional</h3>
-          <p>Tenha um site moderno e responsivo com seu catálogo de imóveis atualizado automaticamente.</p>
-          <ul>
+          <p>Um site moderno e responsivo com seu catálogo atualizado automaticamente. SEO incluído.</p>
+          <ul class="feature-list">
             <li>Design personalizado</li>
-            <li>Otimizado para Google (SEO)</li>
+            <li>Otimizado para Google</li>
             <li>Formulário de contato integrado</li>
             <li>Domínio personalizado</li>
           </ul>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon" style="background:#FFF0EB;">🤖</div>
+          <span class="feature-icon">⚡</span>
           <h3>Automações</h3>
-          <p>Automatize tarefas repetitivas e concentre seu time no que realmente importa: fechar negócios.</p>
-          <ul>
+          <p>Elimine tarefas repetitivas. Deixe a plataforma trabalhar enquanto seu time fecha negócios.</p>
+          <ul class="feature-list">
             <li>E-mails automáticos de follow-up</li>
             <li>Distribuição de leads por corretor</li>
             <li>Alertas de vencimento de contratos</li>
@@ -1432,301 +1084,139 @@
     <div class="section-inner">
       <div class="text-center">
         <span class="section-tag">Como funciona</span>
-        <h2 class="section-title">Pronto em menos de 5 minutos</h2>
+        <h2 class="section-title">Pronto em <em>menos de 5 minutos</em></h2>
         <p class="section-subtitle">Configure sua imobiliária digital sem precisar de conhecimentos técnicos.</p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
+      <div class="how-grid">
+        <div class="how-step">
+          <span class="step-num">01</span>
           <h3>Crie sua conta</h3>
           <p>Cadastro gratuito em segundos. Nenhum cartão de crédito necessário para testar.</p>
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
+        <div class="how-step">
+          <span class="step-num">02</span>
           <h3>Cadastre os imóveis</h3>
           <p>Adicione fotos, descrições e valores. Nossa IA preenche os detalhes automaticamente.</p>
         </div>
-        <div class="step">
-          <div class="step-number">3</div>
+        <div class="how-step">
+          <span class="step-num">03</span>
           <h3>Publique online</h3>
           <p>Seu catálogo fica no ar instantaneamente, integrado com os principais portais.</p>
         </div>
-        <div class="step">
-          <div class="step-number">4</div>
+        <div class="how-step">
+          <span class="step-num">04</span>
           <h3>Feche negócios</h3>
-          <p>Gerencie leads, agende visitas e assine contratos tudo dentro da plataforma.</p>
+          <p>Gerencie leads, agende visitas e assine contratos dentro da plataforma.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOWCASE -->
-  <section class="showcase">
+  <!-- SCREENSHOTS -->
+  <section class="screenshots" id="screenshots">
     <div class="section-inner">
-      <div class="showcase-inner">
-        <div>
-          <span class="section-tag">Catálogo Online</span>
-          <h2 class="section-title">Seu portfólio sempre atualizado</h2>
-          <p class="section-subtitle">Clientes encontram e se apaixonam pelos imóveis antes mesmo da visita.</p>
-          <div class="showcase-features">
-            <div class="showcase-item">
-              <div class="showcase-item-icon">🔍</div>
-              <div>
-                <h4>Busca inteligente</h4>
-                <p>Filtros por tipo, bairro, preço, quartos, metragem e muito mais.</p>
-              </div>
-            </div>
-            <div class="showcase-item">
-              <div class="showcase-item-icon">📱</div>
-              <div>
-                <h4>100% responsivo</h4>
-                <p>Funciona perfeitamente em celular, tablet e computador.</p>
-              </div>
-            </div>
-            <div class="showcase-item">
-              <div class="showcase-item-icon">💬</div>
-              <div>
-                <h4>Contato direto via WhatsApp</h4>
-                <p>O lead envia mensagem direto para o corretor responsável pelo imóvel.</p>
-              </div>
-            </div>
+      <div class="screenshots-header">
+        <span class="section-tag">O sistema por dentro</span>
+        <h2 class="section-title">Veja o ImobTech<br><em>em ação</em></h2>
+        <p class="section-subtitle">Uma plataforma completa, pensada para o dia a dia de quem trabalha com imóveis.</p>
+      </div>
+
+      <!-- Tab switcher -->
+      <div class="ss-tabs">
+        <button class="ss-tab active" onclick="switchTab(this, 'tab-dashboard')">Dashboard</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-imoveis')">Portfólio</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-contratos')">Contratos</button>
+        <button class="ss-tab" onclick="switchTab(this, 'tab-vitrine')">Vitrine</button>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="ss-panel active" id="tab-dashboard">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/dashboard</span>
+          </div>
+          <img src="assets/dashboard.png" alt="Dashboard ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">📊</span>
+            <span class="placeholder-text">dashboard.png</span>
           </div>
         </div>
-        <div>
-          <div class="showcase-screen">
-            <div class="screen-bar">
-              <span class="screen-title">Catálogo de Imóveis</span>
-              <span class="screen-badge">8 imóveis</span>
-            </div>
-            <div class="property-cards-grid">
-              <div class="prop-card">
-                <div class="prop-img" style="background:linear-gradient(135deg,#EDE9FF,#C4B0FF);">🏠</div>
-                <div class="prop-info">
-                  <div class="prop-type">Venda</div>
-                  <div class="prop-name">Casa 3 quartos</div>
-                  <div class="prop-price">R$ 580.000</div>
-                  <div class="prop-meta">
-                    <span>🛏 3</span>
-                    <span>🚿 2</span>
-                    <span>📐 120m²</span>
-                  </div>
-                </div>
-              </div>
-              <div class="prop-card">
-                <div class="prop-img" style="background:linear-gradient(135deg,#FFF0EB,#FFB899);">🏢</div>
-                <div class="prop-info">
-                  <div class="prop-type">Aluguel</div>
-                  <div class="prop-name">Apto 2 quartos</div>
-                  <div class="prop-price">R$ 2.800/mês</div>
-                  <div class="prop-meta">
-                    <span>🛏 2</span>
-                    <span>🚿 1</span>
-                    <span>📐 75m²</span>
-                  </div>
-                </div>
-              </div>
-              <div class="prop-card">
-                <div class="prop-img" style="background:linear-gradient(135deg,#ECFDF5,#6EE7B7);">🏪</div>
-                <div class="prop-info">
-                  <div class="prop-type">Venda</div>
-                  <div class="prop-name">Loja Comercial</div>
-                  <div class="prop-price">R$ 350.000</div>
-                  <div class="prop-meta">
-                    <span>📐 60m²</span>
-                    <span>🅿️ 2 vagas</span>
-                  </div>
-                </div>
-              </div>
-              <div class="prop-card">
-                <div class="prop-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D);">🏰</div>
-                <div class="prop-info">
-                  <div class="prop-type">Venda</div>
-                  <div class="prop-name">Sobrado luxo</div>
-                  <div class="prop-price">R$ 1.900.000</div>
-                  <div class="prop-meta">
-                    <span>🛏 5</span>
-                    <span>🚿 4</span>
-                    <span>📐 300m²</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Visão geral em tempo real — portfólio, relacionamento, financeiro e funil de leads em um único painel.</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="section-inner">
-      <div class="text-center">
-        <span class="section-tag">Planos</span>
-        <h2 class="section-title">Preço justo para cada tamanho</h2>
-        <p class="section-subtitle">Comece grátis. Faça upgrade quando crescer. Sem taxas surpresa.</p>
+      <!-- Portfólio -->
+      <div class="ss-panel" id="tab-imoveis">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/imoveis</span>
+          </div>
+          <img src="assets/imoveis.png" alt="Portfólio de Imóveis ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">🏠</span>
+            <span class="placeholder-text">imoveis.png</span>
+          </div>
+        </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Portfólio em grid com fotos reais, status de disponibilidade e ações rápidas por imóvel.</span>
+        </div>
       </div>
-      <div class="pricing-toggle">
-        <span class="toggle-label">Mensal</span>
-        <button class="toggle-switch" id="billingToggle" onclick="toggleBilling()" title="Alternar cobrança"></button>
-        <span class="toggle-label active">Anual</span>
-        <span class="badge-save">Economize 20%</span>
+
+      <!-- Contratos -->
+      <div class="ss-panel" id="tab-contratos">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/contratos</span>
+          </div>
+          <img src="assets/contratos.png" alt="Contratos ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">📋</span>
+            <span class="placeholder-text">contratos.png</span>
+          </div>
+        </div>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Gestão completa de contratos de venda e locação — com status, comissão e data em um só lugar.</span>
+        </div>
       </div>
-      <div class="pricing-grid">
 
-        <div class="plan-card">
-          <div class="plan-name">Starter</div>
-          <div class="plan-price">
-            <span class="plan-currency">R$</span>
-            <span class="plan-amount" id="price-starter">149</span>
-            <span class="plan-period">/mês</span>
+      <!-- Vitrine -->
+      <div class="ss-panel" id="tab-vitrine">
+        <div class="browser-mock ss-featured">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <span class="browser-addr">imobtech.app/vitrine</span>
           </div>
-          <p class="plan-desc">Ideal para corretores autônomos e imobiliárias pequenas que estão começando.</p>
-          <ul class="plan-features">
-            <li><span class="check">✓</span>Até 30 imóveis ativos</li>
-            <li><span class="check">✓</span>1 usuário (corretor)</li>
-            <li><span class="check">✓</span>Catálogo online</li>
-            <li><span class="check">✓</span>CRM básico</li>
-            <li><span class="check">✓</span>50 fotos por imóvel</li>
-            <li class="disabled"><span class="check">✗</span>Publicação em portais</li>
-            <li class="disabled"><span class="check">✗</span>Contratos digitais</li>
-            <li class="disabled"><span class="check">✗</span>Relatórios avançados</li>
-          </ul>
-          <a href="https://imobiliaria-wkel.onrender.com/login.html" class="plan-cta outline">Começar grátis</a>
-        </div>
-
-        <div class="plan-card popular">
-          <div class="popular-badge">⭐ Mais popular</div>
-          <div class="plan-name">Professional</div>
-          <div class="plan-price">
-            <span class="plan-currency">R$</span>
-            <span class="plan-amount" id="price-pro">299</span>
-            <span class="plan-period">/mês</span>
+          <img src="assets/vitrine.png" alt="Vitrine ImobTech" class="browser-screen"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="browser-screen-placeholder" style="display:none;">
+            <span class="placeholder-icon">🌐</span>
+            <span class="placeholder-text">vitrine.png</span>
           </div>
-          <p class="plan-desc">Para imobiliárias em crescimento que precisam de ferramentas completas.</p>
-          <ul class="plan-features">
-            <li><span class="check">✓</span>Até 150 imóveis ativos</li>
-            <li><span class="check">✓</span>Até 5 usuários</li>
-            <li><span class="check">✓</span>Catálogo com domínio próprio</li>
-            <li><span class="check">✓</span>CRM completo + funil</li>
-            <li><span class="check">✓</span>Publicação em portais</li>
-            <li><span class="check">✓</span>Contratos digitais</li>
-            <li><span class="check">✓</span>Relatórios avançados</li>
-            <li><span class="check">✓</span>Suporte prioritário</li>
-          </ul>
-          <a href="https://imobiliaria-wkel.onrender.com/login.html" class="plan-cta primary">Começar agora →</a>
         </div>
-
-        <div class="plan-card">
-          <div class="plan-name">Enterprise</div>
-          <div class="plan-price">
-            <span class="plan-currency">R$</span>
-            <span class="plan-amount" id="price-enterprise">599</span>
-            <span class="plan-period">/mês</span>
-          </div>
-          <p class="plan-desc">Para redes e franquias que precisam de escala e customização total.</p>
-          <ul class="plan-features">
-            <li><span class="check">✓</span>Imóveis ilimitados</li>
-            <li><span class="check">✓</span>Usuários ilimitados</li>
-            <li><span class="check">✓</span>Multi-filiais</li>
-            <li><span class="check">✓</span>API de integração</li>
-            <li><span class="check">✓</span>White-label completo</li>
-            <li><span class="check">✓</span>Relatórios customizados</li>
-            <li><span class="check">✓</span>Gerente de conta dedicado</li>
-            <li><span class="check">✓</span>SLA 99,9% de uptime</li>
-          </ul>
-          <a href="https://imobiliaria-wkel.onrender.com/login.html" class="plan-cta outline">Falar com vendas</a>
+        <div class="screen-caption">
+          <span class="screen-caption-dot"></span>
+          <span class="screen-caption-text">Vitrine pública elegante para seus clientes — gerada automaticamente com o seu catálogo de imóveis.</span>
         </div>
-
       </div>
-      <p style="text-align:center; margin-top:32px; font-size:0.9rem; color:var(--gray);">
-        🔒 Sem fidelidade. Cancele quando quiser. Teste grátis por 14 dias.
-      </p>
-    </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-inner">
-      <div class="text-center">
-        <span class="section-tag">Depoimentos</span>
-        <h2 class="section-title">O que nossos clientes dizem</h2>
-        <p class="section-subtitle">Mais de 500 imobiliárias já transformaram seus negócios com o ImobTech.</p>
-      </div>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"O ImobTech triplicou a produtividade do meu time. Agora consigo acompanhar todos os leads em tempo real e nunca deixo um cliente sem resposta. Em 3 meses, aumentei 40% no fechamento de contratos."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#6C3FEE,#9B6DFF);">MC</div>
-            <div>
-              <div class="author-name">Marcos Carvalho</div>
-              <div class="author-role">Diretor – Carvalho Imóveis, SP</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Antes usava planilha Excel e WhatsApp para tudo. Com o ImobTech, centralizei tudo: leads, contratos, financeiro. Economizo 3 horas por dia e minha equipe ficou muito mais organizada."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#FF6B35,#FF9B73);">AP</div>
-            <div>
-              <div class="author-name">Ana Paula Rodrigues</div>
-              <div class="author-role">Sócia – Rodrigues & Costa Imóveis, RJ</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"O catálogo online é incrível. Meus clientes conseguem ver todos os imóveis disponíveis, filtrar por bairro e preço, e entrar em contato diretamente. A taxa de agendamento de visitas dobrou!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#10B981,#34D399);">RL</div>
-            <div>
-              <div class="author-name">Ricardo Lima</div>
-              <div class="author-role">Corretor – Lima Premium, BH</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Migramos nossa rede de 8 filiais para o ImobTech e a diferença foi enorme. Agora o gestor regional vê o desempenho de todos os corretores em tempo real. O suporte também é excelente."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#8B5CF6,#A78BFA);">FS</div>
-            <div>
-              <div class="author-name">Fernanda Souza</div>
-              <div class="author-role">CEO – Rede Habitat, PR</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Os contratos digitais salvaram minha vida. Antes levava dias para assinar, agora fecha em minutos. Já fechei contrato com cliente morando em outro estado sem precisar imprimir nada."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#F59E0B,#FBBF24);">JA</div>
-            <div>
-              <div class="author-name">Jorge Almeida</div>
-              <div class="author-role">Corretor Autônomo, Florianópolis</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"A integração com o ZAP Imóveis e Viva Real foi o diferencial. Cadastro o imóvel uma vez e aparece em todos os portais automaticamente. Isso me economiza horas por semana."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:linear-gradient(135deg,#EF4444,#F87171);">CM</div>
-            <div>
-              <div class="author-name">Cláudia Mendes</div>
-              <div class="author-role">Gerente – Mendes Imóveis, Curitiba</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -1735,21 +1225,19 @@
     <div class="section-inner">
       <div class="text-center">
         <span class="section-tag">FAQ</span>
-        <h2 class="section-title">Perguntas frequentes</h2>
+        <h2 class="section-title">Perguntas <em>frequentes</em></h2>
         <p class="section-subtitle">Tem dúvidas? A gente responde.</p>
       </div>
       <div class="faq-list">
-
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             Preciso de cartão de crédito para o teste grátis?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Não! O teste gratuito de 14 dias não requer nenhuma informação de pagamento. Você cria a conta, configura sua imobiliária e testa todas as funcionalidades sem compromisso.</div>
+            <div class="faq-answer-inner">Não. O teste gratuito de 14 dias não requer nenhuma informação de pagamento. Você cria a conta, configura sua imobiliária e testa todas as funcionalidades sem compromisso.</div>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             Posso cancelar a qualquer momento?
@@ -1759,61 +1247,47 @@
             <div class="faq-answer-inner">Sim, sem multa e sem burocracia. Basta acessar as configurações da sua conta e cancelar. Você mantém acesso até o fim do período pago e pode exportar todos os seus dados.</div>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             Meus dados ficam seguros na plataforma?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Absolutamente. Utilizamos criptografia de ponta a ponta, servidores certificados e backup automático diário. Somos totalmente conformes com a LGPD. Seus dados pertencem a você.</div>
+            <div class="faq-answer-inner">Utilizamos criptografia de ponta a ponta, servidores certificados e backup automático diário. Somos totalmente conformes com a LGPD. Seus dados pertencem a você.</div>
           </div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Quantos usuários posso cadastrar?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Depende do plano. O Starter permite 1 usuário, o Professional até 5 usuários (corretores + admin), e o Enterprise tem usuários ilimitados. Você pode controlar permissões de cada usuário individualmente.</div>
-          </div>
-        </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             O ImobTech publica nos portais imobiliários automaticamente?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Sim! A partir do plano Professional, você cadastra o imóvel uma vez e publicamos automaticamente no ZAP Imóveis, Viva Real e OLX. Isso elimina o trabalho repetitivo de cadastro em cada portal.</div>
+            <div class="faq-answer-inner">Sim. Você cadastra o imóvel uma vez e publicamos automaticamente no ZAP Imóveis, Viva Real e OLX, eliminando o trabalho repetitivo de cadastro em cada portal.</div>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Tenho suporte em português?
+            Existe suporte em português?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Sim! Nossa equipe de suporte é 100% brasileira e atende via chat, e-mail e WhatsApp. No plano Enterprise, você tem um gerente de conta dedicado. Horário de atendimento: seg–sex, 8h–18h.</div>
+            <div class="faq-answer-inner">Nossa equipe de suporte é 100% brasileira e atende via chat, e-mail e WhatsApp de segunda a sexta, das 8h às 18h. Planos avançados incluem gerente de conta dedicado.</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CTA FINAL -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-inner">
-      <h2>Transforme sua imobiliária hoje</h2>
-      <p>Junte-se a mais de 500 imobiliárias que já usam o ImobTech. Comece grátis, sem cartão de crédito.</p>
+      <h2>Transforme sua<br>imobiliária <em>hoje</em></h2>
+      <p>Comece grátis por 14 dias. Sem cartão de crédito, sem compromisso.</p>
       <div class="cta-actions">
-        <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-white">
-          Criar conta gratuita →
+        <a href="https://imobiliaria-wkel.onrender.com/login.html" class="btn-gold" style="font-size:0.82rem; padding:14px 32px;">
+          Criar conta gratuita
         </a>
-        <a href="https://imobiliaria-wkel.onrender.com/catalogo" class="btn-outline">
+        <a href="https://imobiliaria-wkel.onrender.com/catalogo" class="btn-ghost-gold" style="font-size:0.82rem; padding:14px 32px;">
           Ver catálogo demo
         </a>
       </div>
@@ -1824,23 +1298,18 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="nav-logo" style="color:white;">
-          <div class="nav-logo-icon">IT</div>
-          ImobTech
-        </a>
-        <p>A plataforma SaaS completa para imobiliárias modernas. Gestão de imóveis, CRM inteligente e contratos digitais em um só lugar.</p>
+        <span class="footer-brand-name">ImobTech</span>
+        <p>A plataforma SaaS completa para imobiliárias modernas. Gestão de imóveis, CRM e contratos digitais em um só lugar.</p>
         <div class="footer-social">
           <a href="#" class="social-btn">in</a>
           <a href="#" class="social-btn">ig</a>
           <a href="#" class="social-btn">fb</a>
-          <a href="#" class="social-btn">yt</a>
         </div>
       </div>
       <div class="footer-col">
         <h4>Produto</h4>
         <ul>
           <li><a href="#features">Funcionalidades</a></li>
-          <li><a href="#pricing">Planos e preços</a></li>
           <li><a href="#how">Como funciona</a></li>
           <li><a href="https://imobiliaria-wkel.onrender.com/catalogo">Ver demo</a></li>
         </ul>
@@ -1850,7 +1319,6 @@
         <ul>
           <li><a href="#">Sobre nós</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">Carreiras</a></li>
           <li><a href="#">Contato</a></li>
         </ul>
       </div>
@@ -1859,7 +1327,6 @@
         <ul>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#">Central de ajuda</a></li>
-          <li><a href="#">Status do sistema</a></li>
           <li><a href="#">Falar com suporte</a></li>
         </ul>
       </div>
@@ -1875,12 +1342,18 @@
   </footer>
 
   <script>
-    // Navbar scroll
+    function switchTab(btn, panelId) {
+      document.querySelectorAll('.ss-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ss-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+
     window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('navbar').style.background =
+        window.scrollY > 20 ? 'rgba(13,13,13,0.98)' : 'rgba(13,13,13,0.9)';
     });
 
-    // Mobile menu
     function toggleMenu() {
       const m = document.getElementById('mobileMenu');
       m.style.display = m.style.display === 'none' ? 'block' : 'none';
@@ -1889,22 +1362,6 @@
       document.getElementById('mobileMenu').style.display = 'none';
     }
 
-    // Billing toggle
-    const monthlyPrices = { starter: 149, pro: 299, enterprise: 599 };
-    const annualPrices  = { starter: 119, pro: 239, enterprise: 479 };
-    let isAnnual = true;
-
-    function toggleBilling() {
-      isAnnual = !isAnnual;
-      const btn = document.getElementById('billingToggle');
-      btn.classList.toggle('monthly', !isAnnual);
-      const prices = isAnnual ? annualPrices : monthlyPrices;
-      document.getElementById('price-starter').textContent    = prices.starter;
-      document.getElementById('price-pro').textContent        = prices.pro;
-      document.getElementById('price-enterprise').textContent = prices.enterprise;
-    }
-
-    // FAQ accordion
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
@@ -1912,16 +1369,12 @@
       if (!isOpen) item.classList.add('open');
     }
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const href = a.getAttribute('href');
         if (href === '#') return;
         const el = document.querySelector(href);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
       });
     });
   </script>
